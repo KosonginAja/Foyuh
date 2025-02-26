@@ -1,0 +1,90 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #000;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.night {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #00fffa, #f0f0f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .night h1 {
+    color: white;
+    margin-bottom: 10px;
+    padding-right: 170px;
+  }
+
+.text-neon {
+    position: flex;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8vmin;
+    font-weight: bold;
+    text-align: center;
+    animation: neon-effect 2s infinite;
+    z-index: 1000;
+  }
+  
+  .text-neon span {
+    color: #ff69b4;
+    text-shadow: 0 0 10px #ff99cc, 0 0 20px #ffccff;
+    animation: konslet-effect 0.2s infinite;
+  }
+  
+  .text-neon span:nth-child(1) {
+    animation-delay: 3s;
+  }
+  
+  .text-neon span:nth-child(2) {
+    animation-delay: 1s;
+  }
+  
+  .text-neon span:nth-child(3) {
+    animation-delay: 7s;
+  }
+  
+  @keyframes konslet-effect {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #butterfly {
+    height: 99.5%;
+    width: 100%;
+}
+
+

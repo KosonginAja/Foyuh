@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fo Yuh...</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="stylesheet" href="style.css">
+  <style type="text/css">
+    div {border:0px solid #FF0000;}
+
+    .butterfly_wrapper
+    {
+      width:6px;
+      height:6px;
+      position:absolute;
+      transition: all 0.05s ease-out;
+    }
+
+    .leftwings,.rightwings
+    {
+      position:absolute;
+      width:50%;
+      height:100%;
+      top:0;
+    }
+
+    .leftwings
+    {
+      left:0;
+    }
+
+    .rightwings
+    {
+      right:0;
+    }
+
+    .perspective
+    {
+      position:relative;
+      width:100%;
+      height:50%;
+      -webkit-perspective:100px;
+      -webkit-perspective-origin:50% 50%;			
+      perspective:200px;
+      perspective-origin:50% 50%;
+    }
+
+    .upperwing, .lowerwing {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#FF4400+0,ff00e1+50,FF4400+100 */
+        background: #2F4F7F; /* Warna biru tua untuk tema malam hari */
+        background: -moz-radial-gradient(center, ellipse cover, #1A1D23 0%, #2F4F7F 50%, #1A1D23 100%); /* FF3.6-15 */
+        background: -webkit-radial-gradient(center, ellipse cover, #1A1D23 0%,#2F4F7F 50%,#1A1D23 100%); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(ellipse at center, #1A1D23 0%,#2F4F7F 50%,#1A1D23 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2F4F7F', endColorstr='#2F4F7F',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        -webkit-animation-duration: 0.3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        box-shadow: 0 0 1px #fff; /* Efek neon */
+        border: 1px solid #fff;
+    }
+    .upperwing
+    {
+      position:absolute;
+      width:100%;
+      height:100%;
+    }
+
+    .upperwing_left
+    {
+      border-top-left-radius: 10%;
+      border-top-right-radius: 80%;
+      border-bottom-right-radius: 0%;
+      border-bottom-left-radius: 30%;
+      -webkit-transform-origin:100% 50%;
+      transform-origin:100% 50%;
+      -webkit-animation-name: movewing_left;
+      animation-name: movewing_left;
+    }
+
+    .upperwing_right
+    {
+      border-top-left-radius: 80%;
+      border-top-right-radius: 10%;
+      border-bottom-right-radius: 30%;
+      border-bottom-left-radius: 0%;
+      -webkit-transform-origin:0% 50%;
+      transform-origin:0% 50%;
+      -webkit-animation-name: movewing_right;
+      animation-name: movewing_right;
+    }
+
+    .lowerwing
+    {
+      position:absolute;
+      top:0;
+      width:80%;
+      height:80%;
+    }
+
+    .lowerwing_left
+    {
+      right:0;
+      border-top-left-radius: 30%;
+      border-top-right-radius: 0%;
+      border-bottom-right-radius: 80%;
+      border-bottom-left-radius: 10%;
+      -webkit-transform-origin:100% 50%;
+      transform-origin:100% 50%;
+      -webkit-animation-name: movewing_left;
+      animation-name: movewing_left;
+    }
+
+    .lowerwing_right
+    {
+      left:0;
+      border-top-left-radius: 0%;
+      border-top-right-radius: 30%;
+      border-bottom-right-radius: 10%;
+      border-bottom-left-radius: 80%;
+      -webkit-transform-origin:0% 50%;
+      transform-origin:0% 50%;
+      -webkit-animation-name: movewing_right;
+      animation-name: movewing_right;
+    }
+
+    @-webkit-keyframes movewing_left{
+      from {-webkit-transform:rotateX(0deg);}
+      to {-webkit-transform:rotateY(65deg);}
+    }
+      
+    @keyframes movewing_left{
+      from {transform:rotateY(0deg);}
+      to {transform:rotateY(65deg);}
+    }
+
+    @-webkit-keyframes movewing_right{
+      from {-webkit-transform:rotateX(0deg);}
+      to {-webkit-transform:rotateY(-65deg);}
+    }
+      
+    @keyframes movewing_right{
+      from {transform:rotateY(0deg);}
+      to {transform:rotateY(-65deg);}
+    }
+    .night .like-button .heart-icon {
+    height: 100px;
+    width: 100px;
+    background-image: url('images/heart.png');
+    background-position: left;
+    cursor: pointer;
+    position: absolute;
+}
+
+.night .like-button .heart-icon.liked {
+    animation: like-anime 0.7s steps(28) forwards;
+}
+
+@keyframes  like-anime {
+    to {
+        background-position: right;
+    }
+
+}
+
+.night .like-button .heart-bg {
+    background: rgb(255,192,200,0);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 100ms ease;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+}
+
+.night {
+  transition: opacity 1s;
+}
+
+.night.fade-out {
+  opacity: 0;
+}
+.tenor-gif-embed{
+    cursor: default; /* Mengatur cursor menjadi default */
+    user-select: none;
+}
+  </style>
+
+  <script>
+    var kupuKupu = [];
+    var x = 0;
+    var y = 0;
+    var size = 0;
+    var rotation = 0;
+    var transitiontimer;
+    var wingtimer;
+    var nexttimer;
+    var mousePosition = {x: 0, y: 0};
+
+    function flutter(vartimer, kupuKupuIndex) {
+      var wrapper = kupuKupu[kupuKupuIndex];
+
+      nexttimer = vartimer + (generaterandomno(-200, 200));
+      nexttimer = (nexttimer < 1500 || nexttimer > 3000 ? 1500 : nexttimer);
+
+      x += generaterandomno(-80, 80);
+      y += generaterandomno(-80, 80);
+
+      x = (x < 20 ? 30 : x);
+      y = (y < 20 ? 30 : y);
+      x = (x > 250 ? 240 : x);
+      y = (y > 250 ? 240 : y);
+
+      size += generaterandomno(-1, 3);
+      size = (size < 6 ? 6 : size);
+      size = (size > 12 ? 12 : size);
+
+      rotation += generaterandomno(-10, 10);
+      rotation = (rotation < -20 ? 0 : rotation);
+      rotation = (rotation > 20 ? 0 : rotation);
+
+      transitiontimer = generaterandomno(20, 50) / 10;
+
+      wrapper.style.left = x + "px";
+      wrapper.style.top = y + "px";
+      wrapper.style.width = size + "px";
+      wrapper.style.height = size + "px";
+      wrapper.style.transform = "rotate(" + rotation + "deg)";
+      wrapper.style.webkitTransform = "rotate(" + rotation + "deg)";
+      wrapper.style.transition = "all " + transitiontimer + "s";
+      wrapper.style.webkitTransition = "all " + transitiontimer + "s";
+
+      wingtimer = generaterandomno(1, 5);
+      var upperwings = wrapper.getElementsByClassName("upperwing");
+      var lowerwings = wrapper.getElementsByClassName("lowerwing");
+
+      for (var k = 0; k <= 1; k++) {
+        upperwings[k].style.animationDuration = "0." + wingtimer + "s";
+        upperwings[k].style.webkitAnimationDuration = "0." + wingtimer + "s";
+        lowerwings[k].style.animationDuration = "0." + wingtimer + "s";
+        lowerwings[k].style.webkitAnimationDuration = "0." + wingtimer + "s";
+      }
+
+      setTimeout(function() {
+        flutter(nexttimer, kupuKupuIndex);
+      }, vartimer);
+    }
+
+    function generaterandomno(varmin, varmax) {
+      return Math.floor((Math.random() * (varmax - varmin + 1)) + varmin);
+    }
+
+    function initKupuKupu() {
+      for (var i = 0; i < 15; i++) {
+        var kupuKupuWrapper = document.createElement("div");
+        kupuKupuWrapper.className = "butterfly_wrapper";
+        kupuKupuWrapper.style.position = "absolute";
+        kupuKupuWrapper.style.left = generaterandomno(0, 300) + "px";
+        kupuKupuWrapper.style.top = generaterandomno(0, 300) + "px";
+        kupuKupuWrapper.style.width = generaterandomno(6, 12) + "px";
+        kupuKupuWrapper.style.height = generaterandomno(6, 12) + "px";
+
+        var leftWings = document.createElement("div");
+        leftWings.className = "leftwings";
+
+        var rightWings = document.createElement("div");
+        rightWings.className = "rightwings";
+
+        var upperWingLeft = document.createElement("div");
+        upperWingLeft.className = "perspective";
+        var upperWingLeftInner = document.createElement("div");
+        upperWingLeftInner.className = "upperwing upperwing_left";
+        upperWingLeft.appendChild(upperWingLeftInner);
+
+        var lowerWingLeft = document.createElement("div");
+        lowerWingLeft.className = "perspective";
+        var lowerWingLeftInner = document.createElement("div");
+        lowerWingLeftInner.className = "lowerwing lowerwing_left";
+        lowerWingLeft.appendChild(lowerWingLeftInner);
+
+        var upperWingRight = document.createElement("div");
+        upperWingRight.className = "perspective";
+        var upperWingRightInner = document.createElement ("div");
+        upperWingRightInner.className = "upperwing upperwing_right";
+        upperWingRight.appendChild(upperWingRightInner);
+
+        var lowerWingRight = document.createElement("div");
+        lowerWingRight.className = "perspective";
+        var lowerWingRightInner = document.createElement("div");
+        lowerWingRightInner.className = "lowerwing lowerwing_right";
+        lowerWingRight.appendChild(lowerWingRightInner);
+
+        leftWings.appendChild(upperWingLeft);
+        leftWings.appendChild(lowerWingLeft);
+        rightWings.appendChild(upperWingRight);
+        rightWings.appendChild(lowerWingRight);
+
+        kupuKupuWrapper.appendChild(leftWings);
+        kupuKupuWrapper.appendChild(rightWings);
+        document.querySelector(".night").appendChild(kupuKupuWrapper);
+        kupuKupu.push(kupuKupuWrapper);
+        flutter(1500, i);
+      }
+    }
+
+    document.addEventListener("mousemove", function(event) {
+      mousePosition.x = event.clientX;
+      mousePosition.y = event.clientY;
+    });
+
+    var barrierRadius = 100; // Ukuran radius barrier di sekitar cursor
+
+    var barrierRadius = 50; // Radius barrier di sekitar cursor
+    var escapeSpeed = 100; // Faktor kecepatan kabur (bisa ditingkatkan)
+
+    function updateKupuKupu() {
+      for (var i = 0; i < kupuKupu.length; i++) {
+        var kupuKupuWrapper = kupuKupu[i];
+
+        var kupuX = kupuKupuWrapper.offsetLeft;
+        var kupuY = kupuKupuWrapper.offsetTop;
+
+        var dx = kupuX - mousePosition.x;
+        var dy = kupuY - mousePosition.y;
+
+        var distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < barrierRadius) {
+          // Kupu-kupu menjauh lebih cepat
+          var angle = Math.atan2(dy, dx);
+          var speed = (barrierRadius - distance) * escapeSpeed / 10; // Lebih responsif
+
+          kupuKupuWrapper.style.left = (kupuX + Math.cos(angle) * speed) + "px";
+          kupuKupuWrapper.style.top = (kupuY + Math.sin(angle) * speed) + "px";
+        } else {
+          // Kupu-kupu bergerak bebas
+          var x = mousePosition.x + Math.random() * 30 - 15;
+          var y = mousePosition.y + Math.random() * 30 - 15;
+          var moveDX = x - kupuX;
+          var moveDY = y - kupuY;
+          var moveDistance = Math.sqrt(moveDX * moveDX + moveDY * moveDY);
+          var moveSpeed = moveDistance / 700; // Percepat gerakan normal
+
+          kupuKupuWrapper.style.left = (kupuX + moveDX / moveSpeed) + "px";
+          kupuKupuWrapper.style.top = (kupuY + moveDY / moveSpeed) + "px";
+        }
+      }
+      requestAnimationFrame(updateKupuKupu);
+    }
+
+    updateKupuKupu();
+  </script>
+</head>
+<body onload="initKupuKupu();">
+    <div class="night">
+        <img src="images/blinkyippie.gif" alt="" style="width: 10%;">
+        <h1>Pencet pelis 👇</h1>
+        <div class="like-button">
+            <div class="heart-bg">
+                <div class="heart-icon"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const heartIcon = document.querySelector('.heart-icon');
+        heartIcon.addEventListener("click", (e) => {
+          heartIcon.classList.toggle('liked'),
+          document.querySelector('.night').classList.add('fade-out');
+          setTimeout(function() {
+            window.location.href = "bunga.html"; // ganti dengan file yang ingin dituju
+          }, 1500);
+        })
+    </script>
+</body>
+</html>
