@@ -989,3 +989,33 @@ mask-image: linear-gradient(to top, transparent 40%, #079097 80%) !important;
 .not-loaded * {
   animation-play-state: paused !important;
 }
+@media only screen and (max-width: 768px) {
+  .flower {
+    transform: scale(1); /* Skala lebih besar untuk mobile */
+  }
+
+  .flower__line {
+    height: 80vmin; /* Batang lebih tinggi */
+  }
+
+  .flower__leaf {
+    width: 15vmin; /* Daun lebih besar */
+    height: 20vmin;
+  }
+}
+
+/* Penyesuaian untuk perangkat mobile kecil (lebar layar <= 480px) */
+@media only screen and (max-width: 480px) {
+  .flower {
+    transform: scale(1.2); /* Skala lebih besar lagi untuk mobile kecil */
+  }
+
+  .flower__line {
+    height: 80vmin; /* Batang lebih tinggi lagi */
+  }
+
+  .flower__leaf {
+    width: 15vmin; /* Daun lebih besar lagi */
+    height: 20vmin;
+  }
+}
