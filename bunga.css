@@ -990,7 +990,9 @@ mask-image: linear-gradient(to top, transparent 40%, #079097 80%) !important;
   animation-play-state: paused !important;
 }
 @media only screen and (max-width: 768px) {
-  .flower {
+  .not-loaded {
+    margin-bottom: 100px;
+  }  .flower {
     transform: scale(1); /* Skala lebih besar untuk mobile */
   }
 
